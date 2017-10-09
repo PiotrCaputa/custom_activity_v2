@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Send To Webhook</title>
+                
+        <script data-main="js/main.js" src="js/vendor/require.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://www.fuelcdn.com/fuelux/3.11.0/css/fuelux.min.css" rel="stylesheet">
+        <link href="https://www.fuelcdn.com/fuelux-mctheme/1.10.0/css/fuelux-mctheme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/custom.css" rel="stylesheet" type="text/css"/>
+
+    </head>
+
+    <body class="fuelux">
+        <!-- Header Start -->
+        <div class="container">
+            <img src="images/spotcap.png" width="50" style="margin-top:10px;">
+            <h4 class="section" style="margin-top:20px;">Allows you to trigger External Webhooks from Journey Builder activity event Data.</h4>
+            
+            <div class="btn-group" role="group">
+                <button type="button" id="test-prev" class="btn btn-default hidden">Back</button>
+                <button type="button" id="test-save" class="btn btn-default hidden">Save</button>
+                <button type="button" id="test-next" class="btn btn-default hidden">Next</button>
+            </div>
+        </div>
+        <!-- Header End -->
+        
+        <hr class="darker"/>
+        
+        <!-- Messages Section Start -->
+        <div class="container">
+            <div id="message" class="alert alert-danger" role="alert" style="display: none;">
+                <p class="text"></p>
+            </div>
+        </div>
+        <!-- Messages Section End -->
+
+        <!-- Step 1 Start -->
+        <div id="step1" class="step container">   
+            <div class="form-group">
+                <label for="txtWebhookUrl">Webhook URL</label>
+                <input type="text" class="form-control" id="txtWebhookUrl" placeholder="Enter Webhook URL">
+                <p class="help-block">Enter the Webhook Trigger URL that should receive data form this journey.</p>
+            </div>
+        </div>  
+        <!-- Step 2 End -->
+        
+        <!-- Step 2 Start -->
+        <div id="step2" class="step container">
+            <!-- Event Data Fields Start -->
+            <div class="form-group eventDataFieldsContainer">
+                <label for="addEventDataField">Event Data Fields</label>
+                <p class="help-block">Select which fields from the Journey Event Data will be passed.</p>
+                
+                <div class="form-inline eventDataField" style="margin: 3px 0px;">
+                    <div class="form-group" style="width: 35%; display:inline-block;">
+                        <select class="form-control selEventDataField" style="width: 100%;">
+                            <option value="" disabled selected>--Please Select--</option> 
+                        </select>
+                    </div>
+                    <div class="form-group" style="display:inline-block;">
+                        <button type="button" class="btn btn-default removeEventDataField hidden" aria-label="Remove">
+                            <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+                
+                </br>
+                <span id="addEventDataField" class="text-primary"><strong>+ Add a field</strong></span>
+            </div>
+            <!-- Event Data Fields End -->
+        </div>
+        <!-- Step 2 End -->
+            
+        <!-- Step 3 Start -->
+        <div id="step3" class="step container">
+            <!-- Contact Attribute Sets Start -->
+            <div class="form-group contactAttributeFieldsContainer">
+                <label for="addContactAttributeSet">Contact Attribute Sets</label>
+                <p class="help-block">Select which fields from the Contact Data will be passed.</p>
+                <!-- Individual Contact Attribute Set Start -->
+                <div class="attributeSet" style="margin: 10px 0px;">
+                    
+                    <!-- Contact Attribute Set Select Start -->
+                    <div class="form-inline">
+                        <div class="form-group" style="width: 35%; display:inline-block;">
+                            <select class="form-control selContactAttributeSet" style="width: 100%;">
+                                <option value="" disabled selected>--Please Select--</option> 
+                            </select>
+                        </div>
+                        <div class="form-group" style="display:inline-block;">
+                            <button type="button" class="btn btn-default removeContactAttributeSet hidden" aria-label="Remove">
+                                <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Contact Attribute Set Select End -->
+                    
+                    <!-- Contact Attribute Set Fields Start -->
+                    <div style="margin-left:30px;margin-top:10px;">
+                        <label>Attribute Set Fields</label>
+                        <div class="form-inline contactAttributeSetField" style="margin: 3px 0px;">
+                            <div class="form-group" style="width: 33%; display:inline-block;">
+                                <select class="form-control selContactAttributeSetField" style="width: 100%;">
+                                    <option value="" disabled selected>--Please Select--</option> 
+                                </select>
+                            </div>
+                            <div class="form-group" style="display:inline-block;">
+                                <button type="button" class="btn btn-default removeContactAttributeField hidden" aria-label="Remove">
+                                    <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                        </div>
+                        </br>
+                        <span class="addContactAttributeField text-primary"><strong>+ Add a field</strong></span>
+                    </div>
+                    <!-- Contact Attribute Set Fields End -->
+                    
+                </div>
+                <!-- Individual Contact Attribute Set End -->
+                
+                </br>
+                <span id="addContactAttributeSet" class="text-info"><strong>+ Add another attribute set</strong></span>
+
+                <br/>
+                
+                <!-- Contact Attribute Sets Manual Start -->
+                <div class="form-group contactAttributeSetFieldsManual" style="margin-top:15px;">
+                <p class="help-block">Add more fields from the Contact Data manually (in case you didn't find them in the above lists).</p>
+                    <div class="form-inline contactAttributeSetField" style="margin: 3px 0px;">
+                        <div class="form-group" style="width: 33%; display:inline-block;">
+                            <input type="text" class="selContactAttributeSetField" value="" style="width: 100%;">
+                        </div>
+                        <div class="form-group" style="display:inline-block;">
+                            <button type="button" class="btn btn-default removeContactAttributeField hidden" aria-label="Remove">
+                                <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+                    </br>
+                    <span class="addContactAttributeField text-primary"><strong>+ Add a field</strong></span>
+                </div>
+                <!-- Contact Attribute Sets Manual End -->
+            </div>
+            <!-- Contact Attribute Sets End -->
+        </div>
+        <!-- Step 3 End -->
+        
+    </body>
+    
+</html>

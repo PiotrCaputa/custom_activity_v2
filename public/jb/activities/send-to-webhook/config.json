@@ -1,0 +1,72 @@
+{
+    "workflowApiVersion": "1.1",
+    "metaData": {
+        "version": "1.0",
+        "icon": "images/icon.png",
+        "iconSmall": "images/iconSmall.png",
+        "category": "customer"
+    },
+    "type": "REST",
+    "lang": {
+        "en-US": {
+            "name": "Custom Activity v2",
+            "description": "A custom Journey Builder activity for sending contact's data to a Zapier endpoint (API v1.1)"
+        }
+    },
+    "arguments": {
+        "execute": {
+            "inArguments": [],
+            "outArguments": [],
+            "url": "https://custom-activity-v2.herokuapp.com/jb/activities/send-to-webhook/execute/",
+            "verb": "POST",
+            "body": "",
+            "header": "",
+            "format": "json",
+            "useJwt": false,
+            "customerKey": "LfxhKPTbC62n",
+            "timeout": 10000
+        }
+    },
+    "configurationArguments": {
+       "applicationExtensionKey": "86db5d77-0065-4aad-a9f0-f49c4a01d1cf",
+       "defaults": { 
+            "method": "POST",
+            "format": "json" 
+        },
+        "validate": {
+            "url": "https://custom-activity-v2.herokuapp.com/jb/activities/send-to-webhook/validate/",
+            "body": "",
+            "verb": "POST",
+            "useJwt": false,
+            "customerKey": "LfxhKPTbC62n"
+        },
+        "save": {
+            "url": "https://custom-activity-v2.herokuapp.com/jb/activities/send-to-webhook/save/",
+            "verb": "POST",
+            "body": "",
+            "useJwt": false,
+            "customerKey": "LfxhKPTbC62n"
+            
+        },
+        "publish": {
+           "url": "https://custom-activity-v2.herokuapp.com/jb/activities/send-to-webhook/publish/",
+            "body": "",
+            "verb": "POST",
+            "useJwt": false,
+            "customerKey": "LfxhKPTbC62n"
+        }
+    },
+    "userInterfaces": {
+        "configModal": {
+            "height": 400,
+            "width": 700,
+            "fullscreen": false
+        },
+        "runningModal": {
+            "url": "runningModal.html"
+        },
+        "runningHover": {
+            "url": "runningHover.html"
+        }
+    }
+}
