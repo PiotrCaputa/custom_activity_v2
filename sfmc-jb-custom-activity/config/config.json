@@ -1,0 +1,12 @@
+{
+    "appId"           : "86db5d77-0065-4aad-a9f0-f49c4a01d1cf",
+    "clientId"        : "nxilnj96c5bh4akmpk9gezxg",
+    "clientSecret"    : "JXIB7fbLZQSueWiX8L2N0Bz0",
+    "appSignature"    : "tg0gur2kzawhcaqvec4hsxzwvptbuohmtjwm3ublqs1b4jbhkv45k1e3oj0dtuhyzlsxlnt34cxiteakqdtch0rrwtzkdeuqktes2zuimk15yl5rmej3jigbtx2qi43vrzanpr20qb3pd4d14hicef1th0wbkssfzwixqmax5zyf424q4wnxtkmld1gnxh24cwyyktqkdlehvkbqw1w1iuvnxj2ek0lsp5xbjfowkr3qhxce5xdwh11m0dyjiwg",
+    "authUrl"         : "https://auth.exacttargetapis.com/v1/requestToken?legacy=1",
+    "stack"           : "S7",
+    "jwtSecret"       : "LfxhKPTbC62n"
+}
+
+
+
